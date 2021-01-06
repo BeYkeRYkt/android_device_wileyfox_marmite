@@ -15,6 +15,7 @@
 #
 
 DEVICE_PATH := device/wileyfox/marmite
+BUILD_BROKEN_USES_BUILD_COPY_HEADERS := true
 
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := msm8937
