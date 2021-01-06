@@ -44,7 +44,7 @@
 #include "property_service.h"
 
 using android::base::GetProperty;
-using android::init::property_set;
+using android::base::SetProperty;
 
 /*
  * In some device revisions, there is a sound amplifier that is not activated at
@@ -62,14 +62,14 @@ void check_aw87319()
     DIR* dir = opendir("/sys/bus/i2c/drivers/AW87319_PA/2-0058");
     if (dir)
     {
-        property_set("ro.hardware.amplifier", "true");
-        property_set("persist.audio.calfile0", "/vendor/etc/acdbdata/AW87319/AW87319_Bluetooth_cal.acdb");
-        property_set("persist.audio.calfile1", "/vendor/etc/acdbdata/AW87319/AW87319_General_cal.acdb");
-        property_set("persist.audio.calfile2", "/vendor/etc/acdbdata/AW87319/AW87319_Global_cal.acdb");
-        property_set("persist.audio.calfile3", "/vendor/etc/acdbdata/AW87319/AW87319_Handset_cal.acdb");
-        property_set("persist.audio.calfile4", "/vendor/etc/acdbdata/AW87319/AW87319_Hdmi_cal.acdb");
-        property_set("persist.audio.calfile5", "/vendor/etc/acdbdata/AW87319/AW87319_Headset_cal.acdb");
-        property_set("persist.audio.calfile6", "/vendor/etc/acdbdata/AW87319/AW87319_Speaker_cal.acdb");
+        SetProperty("ro.hardware.amplifier", "true");
+        SetProperty("persist.audio.calfile0", "/vendor/etc/acdbdata/AW87319/AW87319_Bluetooth_cal.acdb");
+        SetProperty("persist.audio.calfile1", "/vendor/etc/acdbdata/AW87319/AW87319_General_cal.acdb");
+        SetProperty("persist.audio.calfile2", "/vendor/etc/acdbdata/AW87319/AW87319_Global_cal.acdb");
+        SetProperty("persist.audio.calfile3", "/vendor/etc/acdbdata/AW87319/AW87319_Handset_cal.acdb");
+        SetProperty("persist.audio.calfile4", "/vendor/etc/acdbdata/AW87319/AW87319_Hdmi_cal.acdb");
+        SetProperty("persist.audio.calfile5", "/vendor/etc/acdbdata/AW87319/AW87319_Headset_cal.acdb");
+        SetProperty("persist.audio.calfile6", "/vendor/etc/acdbdata/AW87319/AW87319_Speaker_cal.acdb");
         closedir(dir);
     }
 }
@@ -84,22 +84,22 @@ void vendor_load_properties()
     if (cmv == "mv1")
     {
         /* Swift 2 */
-        property_set("ro.product.model", "Swift 2");
-        property_set("ro.media.maxmem", "10590068224");
+        SetProperty("ro.product.model", "Swift 2");
+        SetProperty("ro.media.maxmem", "10590068224");
     }
     else if (cmv == "mv2")
     {
         /* Swift 2 Plus*/
-        property_set("ro.product.model", "Swift 2 Plus");
+        SetProperty("ro.product.model", "Swift 2 Plus");
     }
     else if (cmv == "mv3")
     {
         /* Swift 2 X */
-        property_set("ro.product.model", "Swift 2 X");
+        SetProperty("ro.product.model", "Swift 2 X");
         display_density = 480;
     }
     char density[5];
     snprintf(density, sizeof(density), "%d", display_density);
-    property_set("ro.sf.lcd_density", density);
+    SetProperty("ro.sf.lcd_density", density);
 }
 
