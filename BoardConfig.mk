@@ -247,7 +247,6 @@ TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/vendor/etc/fstab.qcom
 TARGET_RECOVERY_DEVICE_MODULES := libinit_marmite
 
 # RIL
-TARGET_PROVIDES_QTI_TELEPHONY_JAR := true
 TARGET_USES_OLD_MNC_FORMAT := true
 
 # SELinux
